@@ -25,7 +25,7 @@ export class ArticleService{
         return article;
     }
 
-    public searchArticleByTitle= async(title:String) : Promise<ArticleSearchItem[]>{
+    public searchArticleByTitle= async(title:String) : Promise<ArticleSearchItem[]> =>{
 
         const requestParms : Object = {
             "action": "query",
