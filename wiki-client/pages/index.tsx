@@ -18,6 +18,8 @@ const SEARCH_QUERY =
 }`;
 
 const Home: React.FC<searchProps> = ({}) =>{
+    const [resp,search] = useQuery({query: SEARCH_QUERY});
+    console.log(resp);
     return (
       <Wrapper>
           <Formik
@@ -31,7 +33,7 @@ const Home: React.FC<searchProps> = ({}) =>{
                 onChange={e => {
                   handleChange(e)
                   console.log(e.currentTarget.value);
-                  useQuery({query: SEARCH_QUERY,variables:{title:e.currentTarget}});
+                  search({title:e.currentTarget.value});
                 }}        
               />
             </Form>}
