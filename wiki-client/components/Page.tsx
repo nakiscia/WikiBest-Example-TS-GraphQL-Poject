@@ -23,8 +23,6 @@ const Wrapper: React.FC<pageProps> = ({pageid,fetching}) =>{
         pageItem = resp.data.getArticleByPageId;
     }
 
-    console.log(pageItem);
-
     return (
         pageItem ? 
         <Box>
