@@ -4,7 +4,7 @@ import { ObjectType,Field } from "type-graphql";
 export class Category{
     @Field()
     category:String;
-    @Field()
+    @Field({defaultValue : false})
     hidden: Boolean;
     @Field()
     sortkey: String; 

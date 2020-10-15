@@ -19,6 +19,7 @@ const main = async() => {
         origin:"http://localhost:3000",
         credentials:true
     }))
+    
     // For create graphql playground for express
     apolloServer.applyMiddleware({app,cors:false});
     
