@@ -3,6 +3,8 @@ import {URLS} from '../enums'
 
 export class WikipediaMainAPIHelper extends APIHelper{
 
+    private readonly urlSuffix = "/api.php?";
+
     public constructor(){
         super(URLS.WIKIPEDIA_MAIN_API_URL);
     }
@@ -16,14 +18,13 @@ export class WikipediaMainAPIHelper extends APIHelper{
     private buildParams = async(params: any):Promise<string> =>
     {
         const keys = Object.keys(params);
-        let queryString : string = "/api.php?";
+        let queryString : string = this.urlSuffix;
         
         keys.map((key:string,index:number)=>{
             queryString += `${key}=${params[key]}`;
             if(index != keys.length-1)
                 queryString += "&";
         })
-        console.log(queryString);
         return queryString;
     }
 
