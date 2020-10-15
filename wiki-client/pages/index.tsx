@@ -24,7 +24,6 @@ const Home: React.FC<searchProps> = ({}) =>{
     if(!resp.fetching && resp.data)
     {
         searchResult = resp.data.searchArticles[0];
-        console.log(searchResult);
     }
 
     return (
