@@ -2,7 +2,7 @@ import express from 'express';
 import {ApolloServer} from 'apollo-server-express';
 import "reflect-metadata";
 import { buildSchema } from 'type-graphql';
-import {ArticleResolver} from './resolvers/article'
+import {ArticleResolver} from './resolvers/ArticleResolver'
 
 
 const main = async() => {

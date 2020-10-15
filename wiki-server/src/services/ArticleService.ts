@@ -1,4 +1,5 @@
 import { Article } from "src/dtos/Article";
+import { ArticleSearchItem } from "src/dtos/ArticleSearchItem";
 import { WikipediaMainAPIHelper } from "../helpers/WikipediaMainAPIHelper";
 
 export class ArticleService{
@@ -20,9 +21,23 @@ export class ArticleService{
         }
 
         const response : any = await this._wikipediaMainAPIHelper.doGetRequestWithParms(requestParms);
-        console.log(response.parse)
         const article:Article = response.parse;
         return article;
+    }
+
+    public searchArticleByTitle= async(title:String) : Promise<ArticleSearchItem[]>{
+
+        const requestParms : Object = {
+            "action": "query",
+            "format": "json",
+             "list": "search",
+             "utf8": 1,
+             "srsearch": title.replace(' ',"%20")
+        }
+
+        const response : any = await this._wikipediaMainAPIHelper.doGetRequestWithParms(requestParms);
+        const searchResult : [ArticleSearchItem] = response.query.search;
+        return searchResult;
     }
 
 }
